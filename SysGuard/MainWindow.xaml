@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SysGuard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Width="1000" Height="700"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        KeyDown="CerrarConEscape"
+        WindowStyle="None">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border x:Name="TitleBar" Background="#B8D600" Height="40" Grid.Row="0">
+            <Grid>
+                <TextBlock Text="SysGuard 1.0.0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,5" Foreground="Black" FontSize="16" FontFamily="Counter-Strike"/>
+                <Button VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Click="Cerrar_Click" Foreground="White" Height="30" Width="50" Background="Transparent"/>
+                <Button VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,70,0" Click="Restaurar_Click" Foreground="White"/>
+                <Button VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,130,0" Click="Minimizar_Click" Foreground="White"/>
+            </Grid>
+        </Border>
+
+        <Frame x:Name="MainContent" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>
 </Window>

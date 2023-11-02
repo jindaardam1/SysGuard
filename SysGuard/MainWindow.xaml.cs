@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SysGuard
 {
@@ -23,6 +12,61 @@ namespace SysGuard
         public MainWindow()
         {
             InitializeComponent();
+            MostrarSplashScreen();
         }
+
+        private void MostrarSplashScreen()
+        {
+            var pi = new SplashScreen();
+            MainContent.Content = pi;
+
+            var timer = new System.Windows.Threading.DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1.2)
+            };
+            timer.Tick += (sender, e) =>
+            {
+                timer.Stop();
+                MostrarMenuPrincipal();
+            };
+            timer.Start();
+        }
+
+        private void MostrarMenuPrincipal()
+        {
+            var menuPrincipalView = new MenuPrincipal();
+            MainContent.Content = menuPrincipalView;
+        }
+
+        private void CerrarConEscape(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void Minimizar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void Restaurar_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
+            else
+            {
+                WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void Cerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
     }
 }
