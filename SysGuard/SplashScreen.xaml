@@ -47,13 +47,21 @@
                     <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Width" From="0" To="400" Duration="0:0:1" />
+                                <DoubleAnimation Storyboard.TargetProperty="Width" From="0" To="400" Duration="0:0:0.8" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                 </Border.Triggers>
             </Border>
         </Border>
+
+        <TextBlock x:Name="loadingText"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Bottom"
+           Margin="0, 0, 0, 100"
+           Foreground="Black"
+           FontSize="20"
+           FontFamily="Counter-Strike"/>
 
     </Grid>
 </UserControl>

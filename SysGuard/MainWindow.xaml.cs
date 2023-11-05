@@ -68,5 +68,28 @@ namespace SysGuard
             Close();
         }
 
+        public void MostrarMonitoreo(object sender, MouseButtonEventArgs e)
+        {
+            // Navegar hacia el UserControl Monitoreo.xaml
+            MainContent.Navigate(new Uri("Monitoreo.xaml", UriKind.Relative));
+        }
+
+        public void MostrarBenchmark(object sender, MouseButtonEventArgs e)
+        {
+            // Navegar hacia el UserControl Benchmark.xaml
+            MainContent.Navigate(new Uri("Benchmark.xaml", UriKind.Relative));
+        }
+
+        public void MostrarStress(object sender, MouseButtonEventArgs e)
+        {
+            // Navegar hacia el UserControl Stress.xaml
+            MainContent.Navigate(new Uri("Stress.xaml", UriKind.Relative));
+        }
+
+        public void MostrarAjustes(object sender, MouseButtonEventArgs e)
+        {
+            // Navegar hacia el UserControl Ajustes.xaml
+            MainContent.Navigate(new Uri("Ajustes.xaml", UriKind.Relative));
+        }
     }
 }

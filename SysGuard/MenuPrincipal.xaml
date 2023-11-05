@@ -35,27 +35,44 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Name="GridValorEnSteam" Margin="10" Background="Black" Loaded="GridValorEnSteam_OnLoaded">
-
-            </Grid>
-
-            <Label Grid.Column="1" Background="#B8D600" Margin="0, 15, 0, 15"/>
-
-            <Grid Grid.Column="2" Name="GridValorEnBuff" Margin="10" Background="Black" Loaded="GridValorEnBuff_OnLoaded">
-
-            </Grid>
-
-            <Label Grid.Column="3" Background="#B8D600" Margin="0, 15, 0, 15"/>
-
-            <Grid Grid.Column="4" Name="GridCambioYuanes" Margin="10" Loaded="GridCambioYuanes_OnLoaded">
+            <Grid Grid.Column="0" Name="GridCPU" Margin="10" Loaded="GridProcesador_OnLoaded">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Name="YuanesAEuros" FontFamily="Counter-Strike" FontSize="20"
+                <TextBlock Grid.Row="0" Name="NombreProcesador" FontFamily="Counter-Strike" FontSize="20"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke" TextTrimming="CharacterEllipsis"/>
+                <TextBlock Grid.Row="1" Name="TemperaturaProcesador" FontFamily="Counter-Strike" FontSize="20"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
-                <TextBlock Grid.Row="1" Name="EurosAYuanes" FontFamily="Counter-Strike" FontSize="20"
+
+            </Grid>
+
+            <Label Grid.Column="1" Background="#B8D600" Margin="0, 15, 0, 15"/>
+
+            <Grid Grid.Column="2" Name="GridRAM" Margin="10" Loaded="GridRAM_OnLoaded">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Name="CantidadRAM" FontFamily="Counter-Strike" FontSize="20"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke" TextTrimming="CharacterEllipsis"/>
+                <TextBlock Grid.Row="1" Name="PorcentajeRAM" FontFamily="Counter-Strike" FontSize="20"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
+            </Grid>
+
+            <Label Grid.Column="3" Background="#B8D600" Margin="0, 15, 0, 15"/>
+
+            <Grid Grid.Column="4" Name="GridGPU" Margin="10" Loaded="GridGrafica_OnLoaded">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Name="NombreGrafica" FontFamily="Counter-Strike" FontSize="20"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
+                <TextBlock Grid.Row="1" Name="TemperaturaGrafica" FontFamily="Counter-Strike" FontSize="20"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
 
             </Grid>
@@ -74,26 +91,28 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Margin="13" Background="Black">
-
+            <Grid Grid.Row="0" Margin="13">
+                <Border BorderBrush="#B8D600" BorderThickness="1 0 1 0" MouseLeftButtonUp="Monitoreo_Click">
+                    <Image Source="monitor.png" Stretch="Uniform" Margin="10"/>
+                </Border>
             </Grid>
 
             <Label Grid.Row="1" Background="#B8D600" Margin="20, 0, 20, 0"/>
 
-            <Grid Grid.Row="2" Margin="13" Background="Black">
-
+            <Grid Grid.Row="2" Margin="13" MouseLeftButtonUp="Benchmark_Click">
+                <Image Source="benchmarking.png" Stretch="Uniform" Margin="10"/>
             </Grid>
 
             <Label Grid.Row="3" Background="#B8D600" Margin="20, 0, 20, 0"/>
 
-            <Grid Grid.Row="4" Margin="13" Background="Black">
-
+            <Grid Grid.Row="4" Margin="13" MouseLeftButtonUp="Stress_Click">
+                <Image Source="fuego.png" Stretch="Uniform" Margin="10"/>
             </Grid>
 
             <Label Grid.Row="5" Background="#B8D600" Margin="20, 0, 20, 0"/>
 
-            <Grid Grid.Row="6" Margin="13" Background="Black">
-
+            <Grid Grid.Row="6" Margin="13" MouseLeftButtonUp="Ajustes_Click">
+                <Image Source="configuraciones.png" Stretch="Uniform" Margin="20"/>
             </Grid>
 
         </Grid>
