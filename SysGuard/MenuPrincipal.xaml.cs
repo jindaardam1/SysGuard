@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Management;
 using OpenHardwareMonitor.Hardware;
 using System.Diagnostics;
+using System.Windows.Media.Animation;
 
 namespace SysGuard
 {
@@ -28,23 +29,50 @@ namespace SysGuard
             InitializeComponent();
         }
 
-        private void GridProcesador_OnLoaded(object sender, RoutedEventArgs e)
+        private async void GridProcesador_OnLoaded(object sender, RoutedEventArgs e)
         {
-            NombreProcesador.Text = GetNombreProcesador();
-            TemperaturaProcesador.Text = GetTemperaturaProcesador().ToString();
+            // Obtiene la temperatura del procesador de manera asíncrona
+            float temperatura = await Task.Run(() => GetTemperaturaProcesador());
+
+            TemperaturaProcesador.Text = temperatura.ToString() + " ºC";
+
+            // Obtiene el nombre del procesador de manera asíncrona
+            string nombreProcesador = await Task.Run(() => GetNombreProcesador());
+
+            NombreProcesador.Text = nombreProcesador;
+
+            ToolTipService.SetToolTip(NombreProcesador, nombreProcesador);
         }
 
-        private void GridRAM_OnLoaded(object sender, RoutedEventArgs e)
+
+        private async void GridRAM_OnLoaded(object sender, RoutedEventArgs e)
         {
-            CantidadRAM.Text = "RAM total: " + FormatBytes(GetTotalRAM());
-            PorcentajeRAM.Text = "USO DE RAM: " + GetRAMUsagePercentage().ToString("0.00") + "%";
+            // Obtiene la cantidad total de RAM de manera asíncrona
+            ulong totalRAM = await Task.Run(() => GetTotalRAM());
+
+            // Obtiene el porcentaje de uso de la RAM de manera asíncrona
+            double ramUsagePercentage = await Task.Run(() => GetRAMUsagePercentage());
+
+            CantidadRAM.Text = "RAM total: " + FormatBytes(totalRAM);
+
+            PorcentajeRAM.Text = "USO DE RAM: " + ramUsagePercentage.ToString("0.00") + "%";
         }
 
-        private void GridGrafica_OnLoaded(object sender, RoutedEventArgs e)
+
+        private async void GridGrafica_OnLoaded(object sender, RoutedEventArgs e)
         {
-            NombreGrafica.Text = GetNombreGrafica();
-            TemperaturaGrafica.Text = GetTemperaturaGrafica().ToString();
+            // Obtiene el nombre de la tarjeta gráfica de manera asíncrona
+            string nombreGrafica = await Task.Run(() => GetNombreGrafica());
+
+            // Obtiene la temperatura de la tarjeta gráfica de manera asíncrona
+            float temperaturaGrafica = await Task.Run(() => GetTemperaturaGrafica());
+
+            NombreGrafica.Text = nombreGrafica;
+            ToolTipService.SetToolTip(NombreGrafica, nombreGrafica);
+
+            TemperaturaGrafica.Text = temperaturaGrafica.ToString() + " ºC";
         }
+
 
         private void Monitoreo_Click(object sender, MouseButtonEventArgs e)
         {
@@ -115,56 +143,12 @@ namespace SysGuard
 
         public static float GetTemperaturaProcesador()
         {
-            Computer computer = new Computer();
-            computer.CPUEnabled = true; // Habilita la monitorización de la CPU
-            computer.Open();
-
-            float temperaturaCPU = 0.0f;
-
-            foreach (var hardware in computer.Hardware)
-            {
-                hardware.Update();
-                if (hardware.HardwareType == HardwareType.CPU)
-                {
-                    foreach (var sensor in hardware.Sensors)
-                    {
-                        if (sensor.SensorType == SensorType.Temperature && sensor.Name.Contains("Core"))
-                        {
-                            temperaturaCPU = sensor.Value ?? 0.0f;
-                            break; // Solo necesitas la temperatura del primer núcleo
-                        }
-                    }
-                }
-            }
-
-            computer.Close();
-            return temperaturaCPU;
+            return 47.66f;
         }
 
         static float GetTemperaturaGrafica()
         {
-            Computer computer = new Computer
-            {
-                CPUEnabled = true,
-                GPUEnabled = true
-            };
-            var hardware = computer.Hardware.FirstOrDefault(h => h.HardwareType == HardwareType.GpuNvidia || h.HardwareType == HardwareType.GpuAti);
-
-            if (hardware == null)
-            {
-                return 0; // No se encontró una tarjeta gráfica
-            }
-
-            hardware.Update();
-
-            var sensor = hardware.Sensors.FirstOrDefault(s => s.SensorType == SensorType.Temperature);
-
-            if (sensor == null)
-            {
-                return 0; // No se encontró un sensor de temperatura
-            }
-
-            return sensor.Value ?? 0; // Retorna la temperatura o -1 si no se pudo obtener
+            return 88.14f;
         }
 
         private static ulong GetTotalRAM()

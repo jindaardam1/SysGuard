@@ -42,9 +42,15 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Name="NombreProcesador" FontFamily="Counter-Strike" FontSize="20"
-                           VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke" TextTrimming="CharacterEllipsis"/>
+               VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke" TextTrimming="CharacterEllipsis">
+                    <TextBlock.ToolTip>
+                        <ToolTip Content="{Binding Path=Text, RelativeSource={RelativeSource Self}}" />
+                    </TextBlock.ToolTip>
+                </TextBlock>
                 <TextBlock Grid.Row="1" Name="TemperaturaProcesador" FontFamily="Counter-Strike" FontSize="20"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
+
+
 
             </Grid>
 
@@ -71,7 +77,11 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Name="NombreGrafica" FontFamily="Counter-Strike" FontSize="20"
-                           VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
+               VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke">
+                    <TextBlock.ToolTip>
+                        <ToolTip Content="{Binding Path=Text, RelativeSource={RelativeSource Self}}" />
+                    </TextBlock.ToolTip>
+                </TextBlock>
                 <TextBlock Grid.Row="1" Name="TemperaturaGrafica" FontFamily="Counter-Strike" FontSize="20"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
 
