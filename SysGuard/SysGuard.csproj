@@ -73,54 +73,62 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="App\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Ajustes.xaml.cs">
+    <Compile Include="Vista\Ajustes.xaml.cs">
       <DependentUpon>Ajustes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Benchmark.xaml.cs">
+    <Compile Include="Vista\Benchmark.xaml.cs">
       <DependentUpon>Benchmark.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.xaml.cs">
+    <Compile Include="Vista\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen.xaml.cs">
+    <Compile Include="Modelo\RecursosNecesarios.cs" />
+    <Compile Include="Vista\Monitoreo.xaml.cs">
+      <DependentUpon>Monitoreo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Stress.xaml.cs">
+    <Compile Include="Vista\Stress.xaml.cs">
       <DependentUpon>Stress.xaml</DependentUpon>
     </Compile>
-    <Page Include="Ajustes.xaml">
+    <Page Include="Vista\Ajustes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Benchmark.xaml">
+    <Page Include="Vista\Benchmark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="App\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="App\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="App\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuPrincipal.xaml">
+    <Page Include="Vista\MenuPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SplashScreen.xaml">
+    <Page Include="Vista\Monitoreo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Stress.xaml">
+    <Page Include="Vista\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Stress.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,7 +151,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="MonomaniacOne-Regular.ttf" />
+    <Resource Include="Tipografia\MonomaniacOne-Regular.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -154,19 +162,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="cerrar.png" />
-    <Resource Include="maximizar.png" />
-    <Resource Include="menos.png" />
+    <Resource Include="Imagenes\cerrar.png" />
+    <Resource Include="Imagenes\maximizar.png" />
+    <Resource Include="Imagenes\menos.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="monitor.png" />
+    <Resource Include="Imagenes\monitor.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="configuraciones.png" />
+    <Resource Include="Imagenes\configuraciones.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="benchmarking.png" />
-    <Resource Include="fuego.png" />
+    <Resource Include="Imagenes\benchmarking.png" />
+    <Resource Include="Imagenes\fuego.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\termometro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\cpu.png" />
+    <Resource Include="Imagenes\gpu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

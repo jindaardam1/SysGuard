@@ -9,12 +9,12 @@ SysGuard
 none
 false
 DEBUG;TRACE
-C:\Users\Jagoba\Desktop\DAM\DAM2\Proyectos\SysGuard\SysGuard\App.xaml
-61056234558
+C:\Users\Jagoba\Desktop\DAM\DAM2\Proyectos\SysGuard\SysGuard\App\App.xaml
+7-4131869
 
-11849509580
+13568827930
 22797325798
-Ajustes.xaml;Benchmark.xaml;MainWindow.xaml;MenuPrincipal.xaml;SplashScreen.xaml;Stress.xaml;
+Vista\Ajustes.xaml;Vista\Benchmark.xaml;App\MainWindow.xaml;Vista\MenuPrincipal.xaml;Vista\Monitoreo.xaml;Vista\SplashScreen.xaml;Vista\Stress.xaml;
 
 True
 
